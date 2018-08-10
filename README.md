@@ -32,6 +32,11 @@ And here's what I would love to also get working:
 - Hardware video decode
 - And why not, of course, MAINLINE!
 
+The rootfs was too big for GitHub so I uploaded it to Google Drive.
+
+***Rootfs archive link***
+[Download](https://drive.google.com/open?id=1AjhBs_9HLO0KC3bFpka2ewpuJTmigimK)
+
 ***Requirements:***
 
 - A rooted LG V10 H901 with TWRP
@@ -43,6 +48,7 @@ And here's what I would love to also get working:
 - Copy the rootfs archive and desired boot image to whichever storage you're not using for Ubuntu
 - Reboot your LG V10 into TWRP
 - Backup your system, data, boot, if you feel you need to
+
 ***For installing to data partition:***
 - Copy files to SD card
 - Open Advanced>Terminal
@@ -80,6 +86,7 @@ To reboot into Ubuntu, completely turn off the phone, then hold volume up while 
 ***For installing to SD card***
 - Copy files to your internal storage
 - Use the previous instructions but ***replace "mmcblk0p53" with "mmcblk1p1" and replace "/external_sd" with "/data/media/0"***
+- Flash the "ubuntu-boot-sdcard.img" instead of "ubuntu-boot.img"
   
 ***TO LOGIN***
 ## Password: ***doital123***
