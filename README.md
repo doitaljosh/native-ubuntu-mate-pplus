@@ -12,25 +12,37 @@ This is everything that works as of now:
 - Graphics (fbdev, llvmpipe, and msm-fb-refresher)
 - Touch (works natively with Xorg)
 - 4G LTE data should work (might need modem firmware swap with different variants)
-- Microphones (msm8994-tomtom-snd-card alsa UCM files from LG G4)
 - Volume/power keys
 - Pretty much stable systemd support
 - Adsp, modem, and venus firmware blob bringup (with systemd script)
 - USB ethernet and Ralink USB wireless support
+- WiFi (both 2.4 and 5GHz work reliably)
+- Audio (Mics, HiFi DAC, and with an "amixer cset" command, the internal speaker all work! HiFi dac enabled by default ;)
+- Slimport adapter detection: run: 
+```shell
+sudo echo 1 > /sys/class/i2c-dev/i2c-5/device/5-0072/enable_irq
+```
+However, I still cant get modesetting and Xorg to work with the ext display.
 
 And here's what I would love to also get working:
 
 - Adreno 418 OpenGL Xorg 3D Acceleration (freedreno)
 - Screen rotation
 - Second screen omission
-- Patch kernel for proper framebuffer refresh
-- Backlight brightness control (udev rules)
-- Audio output (maybe even the 32 bit HiFi DAC ;-), shouldn't be too hard to enable with alsactl save profiles)
-- Sensors (Light sensor, proximity, laser rangefinder, etc, this phone has lots of them)
+- Sensors (Light sensor, proximity, laser rangefinder, pressure, rgb color, accelerometer, etc, this phone has lots of them)
 - ADB USB Debugging (probably not too hard at all)
-- Cameras (libhybris android blob bringup)
+- Bluetooth (brcm_patchram_plus/hciattach hanging when setting ldisc, blueman shows "Device not ready")
+- Cameras (libhybris android blob bringup, or csiphy,vfe hack)
 - Hardware video decode
+- Make the internal speaker selectable by PulseAudio and switch between headphones/speaker automatically.
 - And why not, of course, MAINLINE!
+
+***Latest rootfs patch to apply fixes here:***
+After extracting patch-rootfs-latest.tar.gz on device, cd to folder and run:
+```shell
+sudo rsync -avz ./ /
+```
+on booted ubuntu on phone to apply patch.
 
 The rootfs was too big for GitHub so I uploaded it to Google Drive.
 
